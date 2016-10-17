@@ -42,7 +42,7 @@ def add_node(host, executors, labels, username, password):
             return
 
         log("Adding node '%s' to Jenkins master" % (host), level=INFO)
-        l_jenkins.create_node(host, int(executors) * 2, host, labels=labels)
+        l_jenkins.create_node(host, int(executors) , host, labels=labels)
 
         if not l_jenkins.node_exists(host):
             log("Failed to create node '%s'" % (host), level=WARNING)

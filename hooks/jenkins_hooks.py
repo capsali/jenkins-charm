@@ -204,7 +204,8 @@ def master_relation_changed():
 def master_relation_departed():
     # Slave hostname is derived from unit name so
     # this is pretty safe
-    slavehost = remote_unit()
+    settings = relation_get()
+    slavehost = settings['slavehost']
     log("Deleting slave with hostname %s." % (slavehost), level=DEBUG)
     del_node(slavehost, config('username'), config('password'))
 
